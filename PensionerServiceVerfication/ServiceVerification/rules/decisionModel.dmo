@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>f2619bbc-4bbc-4f38-9216-db306217db2e</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="Pensioner">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="cp4admin.calculate_pension_and_gratuity.pensionerserviceverfication.pensionerdetails.PensionerDetails" collection="false" name="Pensioner"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="Pensioner" typeRef="cp4admin.calculate_pension_and_gratuity.pensionerserviceverfication.pensionerdetails.PensionerDetails"/>
+    </inputData>
+    <decision id="node_1" name="PensionerNationalityCheck">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="cp4admin.calculate_pension_and_gratuity.pensionerserviceverfication.pensionerdetails.PensionerDetails" collection="false" name="Pensioner"/>
+                <output bomType="java.lang.String" collection="false" name="PensionerNationalityCheck"/>
+                <rule defaultRule="false" href="node_1/NationalityCheck.drl" kind="BusinessRule" name="NationalityCheck"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="PensionerNationalityCheck" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_3" name="PensionerServiceRemark">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="cp4admin.calculate_pension_and_gratuity.pensionerserviceverfication.pensionerdetails.PensionerDetails" collection="false" name="Pensioner"/>
+                <output bomType="java.lang.String" collection="false" name="PensionerServiceRemark"/>
+                <rule defaultRule="false" href="node_3/ServiceRemarkCheck.drl" kind="BusinessRule" name="ServiceRemarkCheck"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_3_ii" name="PensionerServiceRemark" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_4" name="PensionerServiceDOJCheck">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="cp4admin.calculate_pension_and_gratuity.pensionerserviceverfication.pensionerdetails.PensionerDetails" collection="false" name="Pensioner"/>
+                <output bomType="java.lang.String" collection="false" name="PensionerServiceDOJCheck"/>
+                <rule defaultRule="false" href="node_4/ServiceStartDateCheck.drl" kind="BusinessRule" name="ServiceStartDateCheck"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="PensionerServiceDOJCheck" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_5" name="Verification">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="PensionerNationalityCheck"/>
+                <input bomType="java.lang.String" collection="false" name="PensionerServiceRemark"/>
+                <input bomType="java.lang.String" collection="false" name="PensionerServiceDOJCheck"/>
+                <output bomType="java.lang.String" collection="false" name="Verification"/>
+                <rule defaultRule="false" href="node_5/PensionerServiceVerification.drl" kind="BusinessRule" name="PensionerServiceVerification"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_5_ii" name="Verification" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+    </decision>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
