@@ -4,4 +4,13 @@
   <uuid>02d9b94b-9833-46c0-8e37-a0013dcf6fac</uuid>
   <decisionModel href="../rules/decisionModel.dmo#f2619bbc-4bbc-4f38-9216-db306217db2e"/>
   <targetRuleProject href="../../ServiceVerification#daa8de7a-ca0d-42d6-9938-dcafa0074abf"/>
+  <tags key="operationDescription">
+    <value><![CDATA[""]]></value>
+  </tags>
+  <tags key="operationName">
+    <value><![CDATA["ServiceVerification"]]></value>
+  </tags>
+  <tags key="exposedAtRuntime">
+    <value><![CDATA[true]]></value>
+  </tags>
 </com.ibm.rules.studio.model.decisionservice:Operation>
