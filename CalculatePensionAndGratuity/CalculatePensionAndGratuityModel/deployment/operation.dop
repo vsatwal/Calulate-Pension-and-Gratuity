@@ -4,4 +4,13 @@
   <uuid>f037cb64-090c-4377-aec6-2de44225e36a</uuid>
   <decisionModel href="../rules/decisionModel.dmo#79b91ecd-1a66-4af1-a673-a9faf26b966d"/>
   <targetRuleProject href="../../CalculatePensionAndGratuityModel#970988e6-f558-465d-a956-6c0b32f58871"/>
+  <tags key="operationDescription">
+    <value><![CDATA[""]]></value>
+  </tags>
+  <tags key="operationName">
+    <value><![CDATA["CalculatePensionAndGratuityModel"]]></value>
+  </tags>
+  <tags key="exposedAtRuntime">
+    <value><![CDATA[true]]></value>
+  </tags>
 </com.ibm.rules.studio.model.decisionservice:Operation>
